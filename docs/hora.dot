@@ -1,0 +1,21 @@
+digraph AFD {
+  rankdir=LR;
+  label="Horário HH:MM"; labelloc=t; fontsize=16;
+  node [shape=circle, fontsize=11];
+  inicio [shape=point, label=""];
+  "h0" [shape=circle];
+  "h1_livre" [shape=circle];
+  "h1_ate3" [shape=circle];
+  "h2" [shape=circle];
+  "m0" [shape=circle];
+  "m1" [shape=circle];
+  "m2" [shape=doublecircle];
+  inicio -> "h0";
+  "h0" -> "h1_livre" [label="0-1"];
+  "h0" -> "h1_ate3" [label="2"];
+  "h1_livre" -> "h2" [label="0-1, 2, 3, 4-5, 6-9"];
+  "h1_ate3" -> "h2" [label="0-1, 2, 3"];
+  "h2" -> "m0" [label=":"];
+  "m0" -> "m1" [label="0-1, 2, 3, 4-5"];
+  "m1" -> "m2" [label="0-1, 2, 3, 4-5, 6-9"];
+}

@@ -1,0 +1,32 @@
+digraph AFD {
+  rankdir=LR;
+  label="Placa (Mercosul + antiga)"; labelloc=t; fontsize=16;
+  node [shape=circle, fontsize=11];
+  inicio [shape=point, label=""];
+  "q0" [shape=circle];
+  "q1" [shape=circle];
+  "q2" [shape=circle];
+  "q3" [shape=circle];
+  "m1" [shape=circle];
+  "m2" [shape=circle];
+  "m3" [shape=circle];
+  "m4" [shape=doublecircle];
+  "a0" [shape=circle];
+  "a1" [shape=circle];
+  "a2" [shape=circle];
+  "a3" [shape=circle];
+  "a4" [shape=doublecircle];
+  inicio -> "q0";
+  "q0" -> "q1" [label="L"];
+  "q1" -> "q2" [label="L"];
+  "q2" -> "q3" [label="L"];
+  "q3" -> "m1" [label="D"];
+  "m1" -> "m2" [label="L"];
+  "m2" -> "m3" [label="D"];
+  "m3" -> "m4" [label="D"];
+  "q3" -> "a0" [label="H"];
+  "a0" -> "a1" [label="D"];
+  "a1" -> "a2" [label="D"];
+  "a2" -> "a3" [label="D"];
+  "a3" -> "a4" [label="D"];
+}

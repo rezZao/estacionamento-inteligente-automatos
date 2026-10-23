@@ -1,0 +1,19 @@
+digraph AFD {
+  rankdir=LR;
+  label="Cancela"; labelloc=t; fontsize=16;
+  node [shape=circle, fontsize=11];
+  inicio [shape=point, label=""];
+  "FECHADA" [shape=doublecircle];
+  "ABRINDO" [shape=circle];
+  "MANUTENCAO" [shape=circle];
+  "ABERTA" [shape=circle];
+  "FECHANDO" [shape=circle];
+  inicio -> "FECHADA";
+  "FECHADA" -> "ABRINDO" [label="ticket_valido"];
+  "FECHADA" -> "MANUTENCAO" [label="chave_manutencao"];
+  "ABRINDO" -> "ABERTA" [label="cancela_no_topo"];
+  "ABERTA" -> "FECHANDO" [label="carro_passou, tempo_esgotado"];
+  "FECHANDO" -> "FECHADA" [label="cancela_embaixo"];
+  "FECHANDO" -> "ABRINDO" [label="sensor_obstaculo"];
+  "MANUTENCAO" -> "FECHADA" [label="liberar_manutencao"];
+}
